@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartCare Serviços</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; color: #263746; background: #fff; line-height: 1.6; }
+    header { background: #f4f8f8; padding: 22px 8%; display: flex; justify-content: space-between; align-items: center; }
+    .logo { color: #123b50; font-size: 1.35rem; font-weight: 800; }
+    header a { color: #123b50; text-decoration: none; font-weight: 700; }
+    .hero { background: #f4f8f8; padding: 75px 8% 90px; }
+    .hero h1 { color: #123b50; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.12; max-width: 700px; margin-bottom: 18px; }
+    .hero p { max-width: 580px; font-size: 1.1rem; margin-bottom: 28px; }
+    .btn { display: inline-block; border: 0; border-radius: 8px; padding: 14px 23px; background: #36b8a0; color: white; font-weight: 700; cursor: pointer; text-decoration: none; font-size: 1rem; }
+    .btn:hover { background: #269b86; }
+    section { padding: 65px 8%; }
+    .section-title { color: #123b50; font-size: 2rem; margin-bottom: 10px; }
+    .section-intro { margin-bottom: 28px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .service-card { border: 1px solid #e5eeee; border-radius: 12px; padding: 25px; box-shadow: 0 5px 18px rgba(18,59,80,.05); }
+    .service-card h3 { color: #123b50; margin-bottom: 8px; }
+    .form-section { background: #f4f8f8; }
+    form { max-width: 720px; background: white; padding: 28px; border-radius: 12px; box-shadow: 0 5px 18px rgba(18,59,80,.06); }
+    label { display: block; font-weight: 700; margin: 15px 0 6px; }
+    input, select, textarea { width: 100%; padding: 12px; border: 1px solid #cbd8dc; border-radius: 7px; font: inherit; background: white; }
+    textarea { min-height: 110px; resize: vertical; }
+    .result { display: none; margin-top: 22px; padding: 20px; border-radius: 10px; background: #eaf8f4; border: 1px solid #a9dfd1; }
+    .result h3 { color: #123b50; margin-bottom: 8px; }
+    .result p { margin: 5px 0; }
+    .notice { font-size: .9rem; margin-top: 10px; color: #52636b; }
+    footer { background: #123b50; color: white; text-align: center; padding: 25px 8%; }
+    @media (max-width: 650px) {
+      header { padding: 18px 6%; }
+      .hero, section { padding-left: 6%; padding-right: 6%; }
+      .grid { grid-template-columns: 1fr; }
+      form { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SmartCare Serviços</div>
+    <a href="#solicitacao">Solicitar serviço</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Cuidado e praticidade para o seu espaço.</h1>
+      <p>Soluções de limpeza e manutenção para sua casa ou empresa. Envie sua solicitação e receba uma análise inicial do serviço necessário.</p>
+      <a class="btn" href="#solicitacao">Solicitar serviço</a>
+    </section>
+
+    <section id="servicos">
+      <h2 class="section-title">Nossos serviços</h2>
+      <p class="section-intro">Conheça algumas das soluções oferecidas pela SmartCare.</p>
+      <div class="grid">
+        <article class="service-card">
+          <h3>Limpeza residencial</h3>
+          <p>Cuidados com a limpeza e organização de casas e apartamentos.</p>
+        </article>
+        <article class="service-card">
+          <h3>Limpeza comercial</h3>
+          <p>Limpeza de escritórios, salas comerciais e ambientes de trabalho.</p>
+        </article>
+        <article class="service-card">
+          <h3>Manutenção hidráulica</h3>
+          <p>Avaliação inicial de torneiras, tubulações e problemas hidráulicos.</p>
+        </article>
+        <article class="service-card">
+          <h3>Pequenos reparos</h3>
+          <p>Pequenos ajustes e reparos para conservar seu espaço.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="form-section" id="solicitacao">
+      <h2 class="section-title">Solicite um serviço</h2>
+      <p class="section-intro">Preencha os dados abaixo para analisar sua solicitação.</p>
+      <form id="request-form">
+        <label for="nome">Nome completo</label>
+        <input id="nome" name="nome" type="text" required placeholder="Seu nome">
+
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" required placeholder="seuemail@exemplo.com">
+
+        <label for="telefone">Telefone</label>
+        <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000">
+
+        <label for="servico">Tipo de serviço</label>
+        <select id="servico" name="servico" required>
+          <option value="">Selecione um serviço</option>
+          <option>Limpeza residencial</option>
+          <option>Limpeza comercial</option>
+          <option>Manutenção hidráulica</option>
+          <option>Pequenos reparos</option>
+        </select>
+
+        <label for="descricao">Descreva o que você precisa</label>
+        <textarea id="descricao" name="descricao" required placeholder="Explique brevemente o problema ou serviço desejado"></textarea>
+
+        <label for="urgencia">Urgência informada</label>
+        <select id="urgencia" name="urgencia">
+          <option>Normal</option>
+          <option>Baixa</option>
+          <option>Alta</option>
+        </select>
+
+        <button class="btn" type="submit" style="margin-top:20px;">Analisar solicitação</button>
+
+        <div class="result" id="classification-result" aria-live="polite">
+          <h3>Análise da sua solicitação</h3>
+          <p id="result-category"></p>
+          <p id="result-priority"></p>
+          <p class="notice">Esta é uma classificação automática inicial. A equipe deve confirmar a prioridade e as providências necessárias.</p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>SmartCare Serviços — Cuidado e praticidade para o seu espaço.</p>
+  </footer>
+
+  <script>
+    function classificarSolicitacao(servico, descricao, urgencia) {
+      const texto = descricao.toLowerCase();
+      const categoria = servico || "Serviço geral";
+      let prioridade = urgencia || "Normal";
+
+      const termosCriticos = [
+        "inundação", "inundacao", "vazamento intenso",
+        "alagamento", "cano estourado", "curto-circuito"
+      ];
+
+      if (termosCriticos.some(termo => texto.includes(termo))) {
+        prioridade = "Alta";
+      } else if (urgencia === "Alta") {
+        prioridade = "Alta";
+      } else if (urgencia === "Baixa") {
+        prioridade = "Baixa";
+      } else {
+        prioridade = "Normal";
+      }
+
+      return { categoria, prioridade };
+    }
+
+    document.getElementById("request-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const servico = document.getElementById("servico").value;
+      const descricao = document.getElementById("descricao").value.trim();
+      const urgencia = document.getElementById("urgencia").value;
+
+      if (!nome || !email || !servico || !descricao) {
+        alert("Preencha os campos obrigatórios.");
+        return;
+      }
+
+      const resultado = classificarSolicitacao(servico, descricao, urgencia);
+
+      document.getElementById("result-category").textContent =
+        "Categoria identificada: " + resultado.categoria;
+      document.getElementById("result-priority").textContent =
+        "Prioridade sugerida: " + resultado.prioridade;
+
+      const painel = document.getElementById("classification-result");
+      painel.style.display = "block";
+      painel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  </script>
+</body>
+</html>
